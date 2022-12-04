@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<application id="interfacemt" mode="Debug">
+
+  <paths>
+    <using namespace="Application.common.*" />    
+    <using namespace="Application.database.*" />        
+    <using namespace="Application.layouts.*" />
+    <using namespace="System.Data.ActiveRecord.Scaffold.*"/>
+    <using namespace="System.Data.ActiveRecord.*"/>
+    <using namespace="System.Data.*"/>
+    <using namespace="Application.App_Code.*" />
+    <using namespace="System.Web.UI.ActiveControls.*" />
+  </paths>
+
+
+
+  <modules>
+    <module id="db" class="System.Data.TDataSourceConfig">
+     <database ConnectionString="mysql:host=200.75.83.240;dbname=bdkl;port=3306" Username="root" Password="70143086" />
+    </module>
+    <module class="System.Data.ActiveRecord.TActiveRecordConfig" ConnectionID="db" />
+  </modules>
+
+
+  <services>
+    <service id="page" class="TPageService" DefaultPage="Home">
+      <pages Theme="Default" Title="Interface Ministerio Transporte" />
+    </service>
+  </services>
+</application>

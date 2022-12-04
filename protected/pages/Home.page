@@ -1,0 +1,10 @@
+<%@ MasterClass="Application.layouts.MainLayout" Title="Interface Ministerio Transporte" %>
+<com:TContent ID="Main">
+    <div class="hero-unit">
+        <h1>Bienvenido a la aplicacion!</h1>
+        <p>Esta aplicacion tiene la funcionalidad de realizar una interface entre el sistema de transporte Kit Logistic y el registro unico de despacho del ministerio de transporte</p>
+        <p>
+            <a href="#" class="btn btn-primary btn-large">Leer mas &raquo;</a>
+        </p>
+    </div>    
+</com:TContent>

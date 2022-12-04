@@ -1,0 +1,138 @@
+<%@ MasterClass="Application.layouts.MainLayout" Title="Interface Ministerio Transporte" %>
+<com:TContent ID="Main">
+    <div class="hero-unit">
+        <com:TForm>            
+            <com:TDataGrid
+                ID="DGDespachos"
+                DataKeyField="OrdDespacho"
+                AutoGenerateColumns="false"
+                AllowPaging="true"
+                PageSize="30"
+                CssClass="datagrid-datos"
+                PagerStyle.Mode="Numeric"
+                PagerStyle.HorizontalAlign="Right"
+                HeaderStyle.CssClass="header-fondo"
+                ItemStyle.CssClass="item-style"
+                AlternatingItemStyle.CssClass="alternating-style"
+                OnDeleteCommand="procesarDespachoUnico"
+                OnEditCommand="reiniciarEnvioDespacho"
+                OnPageIndexChanged="changePage"
+                OnPagerCreated="pagerCreated"
+                OnUpdateCommand="NoReportar">
+
+                <com:TBoundColumn
+                    ID="ClmOrdDespacho"
+                    HeaderText="Orden"
+                    HeaderStyle.Width="80px"
+                    DataField="OrdDespacho"/>                              
+
+                <com:TBoundColumn
+                    ID="ClmManifiesto"
+                    HeaderText="Manifiesto"
+                    HeaderStyle.Width="80px"
+                    DataField="ManifiestoInterno"/>                 
+                
+                <com:TBoundColumn
+                    ID="ClmFhExpedicion"
+                    HeaderText="Fecha"
+                    HeaderStyle.Width="80px"
+                    DataField="FhExpedicion"/>                
+                
+                <com:TBoundColumn
+                    ID="ClmEnvioPersona"
+                    HeaderText="Personas"
+                    HeaderStyle.Width="5px"
+                    DataField="EnvioPersona"/>                
+
+                <com:TBoundColumn
+                    ID="ClmEnvioVehiculo"
+                    HeaderText="Vehiculos"
+                    HeaderStyle.Width="5px"
+                    DataField="EnvioVehiculo"/>                 
+
+                <com:TBoundColumn
+                    ID="ClmEnvioGuias"
+                    HeaderText="Guias"
+                    HeaderStyle.Width="5px"
+                    DataField="EnvioGuias"/>
+
+                <com:TBoundColumn
+                    ID="ClmEnvioManifiesto"
+                    HeaderText="Enviado"
+                    HeaderStyle.Width="5px"
+                    DataField="EnvioManifiesto"/>                                              
+                
+                <com:TTemplateColumn HeaderText="Procesar" ID="ClmProcesar" ItemStyle.HorizontalAlign="Center"  >
+                    <prop:ItemTemplate>
+                        <com:TButton
+                            ID="DeleteColumn"
+                            Text = "Procesar"
+                            CommandName="delete"/>
+                    </prop:ItemTemplate>
+                </com:TTemplateColumn>                
+
+                <com:TTemplateColumn HeaderText="Reiniciar envio" ID="ClmReiniciarEnvio" ItemStyle.HorizontalAlign="Center"  >
+                    <prop:ItemTemplate>
+                        <com:TButton
+                            ID="EditColumn"
+                            Text = "Reiniciar envio"
+                            CommandName="edit"/>
+                    </prop:ItemTemplate>
+                </com:TTemplateColumn>                                
+
+                <com:TTemplateColumn HeaderText="No reportar" ID="ClmNoReportar" ItemStyle.HorizontalAlign="Center"  >
+                    <prop:ItemTemplate>
+                        <com:TButton
+                            ID="UpdateColumn"
+                            Text = "No reportar"
+                            CommandName="update"/>
+                    </prop:ItemTemplate>
+                </com:TTemplateColumn>                
+                
+            </com:TDataGrid>
+            <com:TButton ID="BtnGenerarSeleccionados" OnClick="procesarDespachoVarios" Text="Generar seleccionados" visible ="false"/>
+            <com:TActiveLabel ID="LblMensaje" Text =""/>
+            <br /><br /><br />
+            <com:TDataGrid
+                ID="DGErrores"
+                DataKeyField="codigo"
+                AutoGenerateColumns="false"
+                AllowPaging="true"
+                PageSize="15"
+                PagerStyle.Mode="Numeric"
+                PagerStyle.HorizontalAlign="Right">
+
+                <com:TBoundColumn
+                    ID="ClmCodigo"
+                    HeaderText="Codigo"
+                    HeaderStyle.Width="100px"
+                    DataField="codigo"/>
+                
+                <com:TBoundColumn
+                    ID="ClmFecha"
+                    HeaderText="Fecha"
+                    HeaderStyle.Width="20px"
+                    DataField="fecha"/>
+                
+                <com:TBoundColumn
+                    ID="ClmModulo"
+                    HeaderText="Modulo"
+                    HeaderStyle.Width="80px"
+                    DataField="modulo"/>
+
+                <com:TBoundColumn
+                    ID="ClmReferencia"
+                    HeaderText="Referencia"
+                    HeaderStyle.Width="80px"
+                    DataField="referencia"/>                
+                
+                <com:TBoundColumn
+                    ID="ClmError"
+                    HeaderText="Error"
+                    HeaderStyle.Width="400px"
+                    DataField="error"/>                               
+            </com:TDataGrid>            
+        </com:TForm>                    
+    </div>
+
+</com:TContent>
